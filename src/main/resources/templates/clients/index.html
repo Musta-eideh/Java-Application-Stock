@@ -2,9 +2,22 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
+                    
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Clientes</h1>
-                    <p class="mb-4">Tabela de clientes cadastrados.</p>
+                    <div class="title d-flex justify-content-between align-items-center mb-4">
+                        <div>
+                            <h1 class="h3 mb-2 text-gray-800">Clientes</h1>
+                            <p class="mb-0">Tabela de clientes cadastrados.</p>
+                        </div>
+
+                        <a href="/clientes/novo">
+                            <button type="button" 
+                                    class="btn btn-primary rounded-circle d-flex align-items-center justify-content-center" 
+                                    style="width: 50px; height: 50px;">
+                                +
+                            </button>
+                        </a>
+                    </div>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -19,7 +32,7 @@
                                             <th>Nome</th>
                                             <th>Endereço</th>
                                             <th>Telefone</th>
-                                            <th>Employee</th>
+                                            <th>Funcionário</th>
                                             <th>E-mail</th>
                                             <th>Máquinas</th>
                                         </tr>
@@ -29,39 +42,19 @@
                                             <th>Nome</th>
                                             <th>Endereço</th>
                                             <th>Telefone</th>
-                                            <th>Employee</th>
+                                            <th>Funcionário</th>
                                             <th>E-mail</th>
                                             <th>Máquinas</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <td>Lucas</td>
-                                            <td>piritubacity</td>
-                                            <td>11999999999</td>
-                                            <td>Bernardo</td>
-                                            <td>lucas@hotmail.com</td>
-                                            <td>Epson X3</td>
-                                            <td><a href="#" class="btn btn-warning">Alterar</td>
-                                            <td><a href="#" class="btn btn-danger">Excluir</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Lucas</td>
-                                            <td>piritubacity</td>
-                                            <td>11999999999</td>
-                                            <td>Bernardo</td>
-                                            <td>lucas@hotmail.com</td>
-                                            <td>Epson X3</td>
-                                            <td><a href="#" class="btn btn-warning">Alterar</td>
-                                            <td><a href="#" class="btn btn-danger">Excluir</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Lucas</td>
-                                            <td>piritubacity</td>
-                                            <td>11999999999</td>
-                                            <td>Bernardo</td>
-                                            <td>lucas@hotmail.com</td>
-                                            <td>Epson X3</td>
+                                        <tr th:each="client : ${clients}">
+                                            <td th:text="${client.name}"></td>
+                                            <td th:text="${client.address}"></td>
+                                            <td th:text="${client.phone}"></td>
+                                            <td th:text="${client.employee}"></td>
+                                            <td th:text="${client.email}"></td>
+                                            <td th:text="${client.machine}"></td>
                                             <td><a href="#" class="btn btn-warning">Alterar</td>
                                             <td><a href="#" class="btn btn-danger">Excluir</td>
                                         </tr>
